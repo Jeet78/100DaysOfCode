@@ -1,0 +1,102 @@
+/*  Universal selector */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*  ID (hash) selector */
+#box {
+  width: 200px;
+  height: 200px;
+  background: red;
+}
+
+/* Class selector */
+.box {
+  width: 200px;
+  height: 200px;
+  background: red;
+}
+
+/* Type selector */
+li {
+  color: red;
+  background: yellow;
+  font-size: 16px;
+}
+
+/* Descendant Selector */
+/* applied styles for anchor elements inside a box class element that means it will affect only anchor elements inside a box class element. */
+.box a {
+  color: red;
+}
+
+/* Adjacent Selectors */
+/* Adjacent selectors are nothing but it will select an element that immediately follows the first element. For example in the above code styles will be applied for the first paragraph after the div element. */
+div + p {
+  background: whitesmoke;
+  color: pink;
+}
+
+/* A > B Selector */
+/* It will select all p elements which are direct children of div. */
+div > p {
+  color: red;
+}
+
+/* A~B Selector */
+/* This is a sibling combinator which is almost like A + B selector but in adjacent selectors, we can select only one element which is that immediately follows the first element. But div ~ p, in this case, it will select all the p elements as long as they follow the div element. */
+div ~ p {
+  color: green;
+}
+
+/* Attribute Selectors */
+/* Attribute selectors are used to selecting an element with a specific attribute. For example, in the above code it will select all anchor tags that have a target attribute. */
+a[target] {
+  color: red;
+}
+
+/* :checked */
+/* This :checked pseudo-class is very useful to find the state of the elements like radio buttons, checkbox and select — option.What if you want to apply styles only if the element was checked? In that cases, this pseudo-class will be very handy. */
+input:checked + div {
+  color: purple;
+  background: pink;
+}
+
+/* ------------------------- ADVANCE SELECTORS --------------------------  */
+
+/* 1. Ends With ($=) */
+
+/* <!-- HTML --> 
+<div id="0125_LoginPanel"> 
+Some sample content 
+</div> */
+
+div[id$="_LoginPanel"] {
+  margin: 0 3em;
+  padding: 1em;
+}
+
+/* 2. Begins with (^=) */
+
+/* <!-- HTML --> 
+<div class="myPanel_1435"> 
+  <h1>My custom panel</h1> 
+</div> */
+
+div[class^="myPanel_"] {
+  margin: 0 3em;
+  padding: 1em;
+}
+
+/* 3. Contains (*=) */
+
+/* <div class="1gdug_logoutPanel_4828fde"> 
+  <h1>My Custom Logout Panel</h1> 
+  <form>...</form> 
+</div> */
+
+div[class*="logoutPanel"] {
+  margin: 0 3em;
+  padding: 1em;
+}
