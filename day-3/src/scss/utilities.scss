@@ -1,0 +1,87 @@
+/* 
+----------------------------------- VARIABLES -----------------------------------
+*/
+
+$font-sizes: (
+  h1: 4.6rem,
+  h2: 3.6rem,
+  h3: 2.8rem,
+  h4: 2.2rem,
+  h5: 1.8rem,
+  h6: 1.6rem,
+  p: 14px,
+  small: 12px,
+);
+
+$opacity: (
+  0: 0,
+  1: 0.1,
+  2: 0.2,
+  3: 0.3,
+  4: 0.4,
+  5: 0.5,
+  6: 0.6,
+  7: 0.7,
+  8: 0.8,
+  9: 0.9,
+  full: 1,
+);
+
+$font-weights: (
+  fw-300: 300,
+  fw-400: 400,
+  fw-500: 500,
+  fw-600: 600,
+  fw-700: 700,
+  fw-800: 800,
+  fw-900: 900,
+);
+
+// Heading sizes
+@each $header, $size in $font-sizes {
+  #{$header} {
+    font-size: $size;
+  }
+}
+
+// Font weights
+@each $font-weight, $weight in $font-weights {
+  .#{$font-weight} {
+    font-weight: #{$weight};
+  }
+}
+
+// Opacity
+@each $opacity, $op in $opacity {
+  op-#{$opacity} {
+    opacity: #{$op};
+  }
+}
+
+// Opacity on hover
+@each $opacity, $op in $opacity {
+  op-hover-#{$opacity} {
+    &:hover {
+      opacity: #{$op};
+    }
+  }
+}
+
+/* 
+----------------------------------- FLEXBOX UTILITY -----------------------------------
+*/
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-row-center {
+  flex-direction: row;
+  @extend .flex-center;
+}
+
+.flex-row-column {
+  flex-direction: column;
+  @extend .flex-center;
+}
